@@ -1,202 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* {
-    margin: 0;
-    border: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css"  />
+
+  <title>Cadastro Alura Plus</title>
+
+  <style>
+    
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-    background:linear-gradient(45deg, #0c0249, rgb(1, 16, 65),rgb(16, 0, 105),rgb(28, 4, 163), #f8f8f9);
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body{
+  background: #060606;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main.container {
-    background: white;
-    min-width: 320px;
-    min-height: 40vh;
-    padding: 2rem;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+.container{
+  background-color: #fafafa;
+  border-radius: 14px;
+  margin: 14px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: 0 3px 5px rgba(0,0,0, 0.5);
+  overflow: hidden;
 }
 
-main h2 {
-    font-weight: 600;
-    margin-bottom: 2rem;
-    position: relative;
+.header{
+  background: linear-gradient(120deg, #db3e3e 0%, #b10808 100%);
+  padding: 24px;
+  text-align: center;
+  color: #FFF;
 }
 
-main h2::before {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 25px;
-    bottom: 3px;
-    left: 0;
-    border-radius: 8px;
-    background: linear-gradient(45deg,rgb(28, 4, 163),rgb(93, 93, 227), rgb(128, 128, 170));
+.form{
+  padding: 18px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.form-content{
+  margin-bottom: 8px;
+  padding-bottom: 18px;
+  position: relative;
 }
 
-.input-field {
-    position: relative;
+.form-content label{
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
-form .input-field:first-child {
-    margin-bottom: 1.5rem;
+.form-content input{
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid #dfdfdf;
 }
 
-.input-field .underline::before {
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    bottom: -5px;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
+.form-content a{
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  visibility: hidden;
 }
 
-.input-field .underline::after {
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    bottom: -5px;
-    left: 0;
-    background: linear-gradient(45deg,rgb(28, 4, 163),rgb(93, 93, 227), rgb(128, 128, 170));
-    transform: scaleX(0);
-    transition: all .3s ease-in-out;
-    transform-origin: left;
+.form button{
+  background-color: red;
+  color: #FFF;
+  width: 100%;
+  border-radius: 14px;
+  padding: 10px;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 14px;
 }
 
-.input-field input:focus ~ .underline::after {
-    transform: scaleX(1);
+button:hover{
+  
+}
+.form-content.error input{
+  border-color: #ff3b25;
 }
 
-.input-field input {
-    outline: none;
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.7);
-    width: 100%;
+.form-content.error a{
+  color: #ff3b25;
+  visibility: visible;
 }
-
-.input-field input::placeholder {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-form input[type="submit"] {
-    margin-top: 2rem;
-    padding: 0.4rem;
-    width: 100%;
-    background: linear-gradient(to left,rgb(28, 4, 163),rgb(93, 93, 227), rgb(128, 128, 170));
-    cursor: pointer;
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 300;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-form input[type="submit"]:hover {
-    letter-spacing: 0.5px;
-    background: linear-gradient(to right,rgb(28, 4, 163),rgb(93, 93, 227), rgb(128, 128, 170));
-}
-
-.footer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-}
-
-.footer span {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-.footer .social-field {
-    padding: 0.4rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    width: 100%;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-.footer .social-field a i {
-    margin: 0 0.5rem;
-    width: 15px;
-}
-
-.footer .social-field a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer .social-field.twitter {
-    background: linear-gradient(to right, #56a7f2, #468aca);
-}
-
-.footer .social-field.facebook {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-}
-    </style>
+  </style>
 </head>
 <body>
-    <main class="container">
-        <h2>Login</h2>
-        <form action="#">
-            <div class="input-field">
-                <input type="text" name="username" id="username"
-                    placeholder="Enter Your Username">
-                <div class="underline"></div>
-            </div>
-            <div class="input-field">
-                <input type="password" name="password" id="password"
-                    placeholder="Enter Your Password">
-                <div class="underline"></div>
-            </div>
 
-            <input type="submit" value="Continue">
-        </form>
+  <div class="container">
+    <section class="header">
+      <h2>Cadastro</h2>
+    </section>
 
-        <div class="footer">
-            <span>Or Connect With Social Media</span>
-            <div class="social-fields">
-                <div class="social-field twitter">
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                        Sign in with Twitter
-                    </a>
-                </div>
-                <div class="social-field facebook">
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                        Sign in with Facebook
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
+    <form id="form" class="form">
+      <div class="form-content">
+        <label for="username">Nome do usuário</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Digite o nome do usuario..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Digite o seu email..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Digite sua senha..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="password-confirmation">Confirmação de senha</label>
+        <input
+          type="password"
+          id="password-confirmation"
+          placeholder="Digite sua senha novamente..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <button type="submit">Cadastrar</button>
+
+    </form>
+
+  </div>
+  
+
+  <script src="./script.js"></script>
 </body>
 </html>
